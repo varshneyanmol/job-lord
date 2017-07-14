@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.jobLord.model.SeekerExperience" table="seeker_experience">
+		<composite-id>
+			<key-many-to-one name="id">
+				<column name="id_"></column>
+			</key-many-to-one>
+			<key-property name=""></key-property>
+			<key-property name="startDate" column="start_date"></key-property>
+		</composite-id>
+
+		<property name="endDate" type="java.util.Date">
+			<column name="end_date" not-null="false"></column>
+		</property>
+		<property name="designation" type="java.lang.String">
+			<column name="designation" length="50" not-null="false"></column>
+		</property>
+		<property name="companyName" type="java.lang.String">
+			<column name="company_name" length="80" not-null="true"></column>
+		</property>
+		<property name="city" type="java.lang.String">
+			<column name="job_city" length="25" not-null="true"></column>
+		</property>
+		<property name="state" type="java.lang.String">
+			<column name="job_state" length="50" not-null="true"></column>
+		</property>
+		<property name="country" type="java.lang.String">
+			<column name="job_country" length="50" not-null="true"></column>
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" not-null="false"></column>
+		</property>
+		<property name="isCurrentlyEmployed">
+			<column name="is_currently_employed"></column>
+		</property>
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.jobLord.model.SeekerProfile" table="seeker_profile">
+		<id name="id" type="java.lang.Integer">
+			<column name="id_seeker_profile"></column>
+			<generator class="identity"></generator>
+		</id>
+		<property name="firstName" type="java.lang.String">
+			<column name="first_name" length="20" not-null="true"></column>
+		</property>
+		<property name="lastName" type="java.lang.String">
+			<column name="last_name" length="30" not-null="false"></column>
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="email" length="40" not-null="true"></column>
+		</property>
+		<property name="mobile" type="java.lang.String">
+			<column name="mobile" length="15" not-null="true"></column>
+		</property>
+		<property name="DOB" type="java.util.Date">
+			<column name="dob" not-null="true"></column>
+		</property>
+		<property name="gender" type="java.lang.Character">
+			<column name="gender" length="1" not-null="true"></column>
+		</property>
+
+
+		<!-- <list name="seekerExperiences" table="seeker_experience" cascade="all"> 
+			<key column="id_seeker_profile" not-null="true"></key> <index column="index"></index> 
+			<one-to-many class="com.jobLord.model.SeekerExperience" /> </list> -->
+
+		<set name="skills" table="seeker_skill" cascade="none" inverse="false">
+			<key>
+				<column name="id_seeker_profile" not-null="true"></column>
+			</key>
+			<many-to-many class="com.jobLord.model.Skill" column="id_skill"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>
