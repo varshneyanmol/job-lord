@@ -2,8 +2,8 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
-	<class name="com.jobLord.model.SeekerProfile" table="seeker_profile">
+<hibernate-mapping package="com.jobLord.model">
+	<class name="SeekerProfile" table="seeker_profile">
 		<id name="id" type="java.lang.Integer">
 			<column name="id_seeker_profile"></column>
 			<generator class="identity"></generator>
@@ -27,7 +27,6 @@
 			<column name="gender" length="1" not-null="true"></column>
 		</property>
 
-
 		<!-- <list name="seekerExperiences" table="seeker_experience" cascade="all"> 
 			<key column="id_seeker_profile" not-null="true"></key> <index column="index"></index> 
 			<one-to-many class="com.jobLord.model.SeekerExperience" /> </list> -->
@@ -36,7 +35,19 @@
 			<key>
 				<column name="id_seeker_profile" not-null="true"></column>
 			</key>
-			<many-to-many class="com.jobLord.model.Skill" column="id_skill"></many-to-many>
+			<many-to-many class="Skill" column="id_skill"></many-to-many>
+		</set>
+
+		<set name="seekerEducations" inverse="true">
+			<key>
+				<column name="id_seeker_profile" not-null="true"></column>
+			</key>
+			<one-to-many class="SeekerEducation" />
 		</set>
 	</class>
 </hibernate-mapping>
+
+
+
+
+

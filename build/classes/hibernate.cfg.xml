@@ -17,5 +17,8 @@
 		<mapping resource="com/jobLord/mapping/SeekerProfile.hbm.xml" />
 		<!-- <mapping resource="com/jobLord/mapping/SeekerExperience.hbm.xml" /> -->
 		<mapping resource="com/jobLord/mapping/Skill.hbm.xml" />
+		<mapping resource="com/jobLord/mapping/Degree.hbm.xml" />
+		<mapping resource="com/jobLord/mapping/SeekerEducation.hbm.xml" />
+
 	</session-factory>
 </hibernate-configuration>

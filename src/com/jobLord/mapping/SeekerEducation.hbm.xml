@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.jobLord.model">
+	<class name="SeekerEducation" table="seeker_education">
+		<composite-id name="id" class="SeekerEducationCompositeID">
+			<key-property name="idSeekerProfile" access="field">
+				<column name="id_seeker_profile"></column>
+			</key-property>
+			<key-property name="idDegree" access="field">
+				<column name="id_degree"></column>
+			</key-property>
+		</composite-id>
+
+		<property name="university" type="java.lang.String">
+			<column name="university" length="100" not-null="true"></column>
+		</property>
+
+		<property name="startDate" type="java.util.Date">
+			<column name="start_date" not-null="true"></column>
+		</property>
+
+		<property name="endDate" type="java.util.Date">
+			<column name="end_date" not-null="true"></column>
+		</property>
+
+		<property name="percentage" type="java.lang.Double">
+			<column name="percentage" not-null="false"></column>
+		</property>
+
+		<property name="cgpa" type="java.lang.Double">
+			<column name="cgpa" not-null="false"></column>
+		</property>
+
+		<many-to-one name="seekerProfile" update="false" insert="false">
+			<column name="id_seeker_profile" not-null="true"></column>
+		</many-to-one>
+
+		<many-to-one name="degree" update="false" insert="false">
+			<column name="id_degree" not-null="true"></column>
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

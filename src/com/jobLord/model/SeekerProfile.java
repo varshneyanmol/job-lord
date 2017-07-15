@@ -15,6 +15,7 @@ public class SeekerProfile {
 	// private List<SeekerExperience> seekerExperiences;
 
 	private Set<Skill> skills;
+	private Set<SeekerEducation> seekerEducations;
 
 	public SeekerProfile() {
 
@@ -99,6 +100,14 @@ public class SeekerProfile {
 
 	public void setSkills(Set<Skill> skills) {
 		this.skills = skills;
+	}
+
+	public Set<SeekerEducation> getSeekerEducations() {
+		return seekerEducations;
+	}
+
+	public void setSeekerEducations(Set<SeekerEducation> seekerEducations) {
+		this.seekerEducations = seekerEducations;
 	}
 
 }
