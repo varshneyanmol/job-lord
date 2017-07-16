@@ -7,6 +7,7 @@ public class Skill {
 	private String label;
 
 	private Set<SeekerProfile> seekers;
+	private Set<JobPost> jobPosts;
 
 	public Skill() {
 	}
@@ -37,6 +38,14 @@ public class Skill {
 
 	public void setSeekers(Set<SeekerProfile> seekers) {
 		this.seekers = seekers;
+	}
+
+	public Set<JobPost> getJobPosts() {
+		return jobPosts;
+	}
+
+	public void setJobPosts(Set<JobPost> jobPosts) {
+		this.jobPosts = jobPosts;
 	}
 
 }

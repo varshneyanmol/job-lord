@@ -1,21 +1,11 @@
 package com.jobLord.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class SeekerExperience implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private int id;
+public class SeekerExperience {
 
-	public int getId() {
-		return id;
-	}
+	private SeekerExperienceCompositeID id = new SeekerExperienceCompositeID();
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	private Date startDate;
 	private Date endDate;
 	private String designation;
 	private String companyName;
@@ -25,15 +15,12 @@ public class SeekerExperience implements Serializable {
 	private String description;
 	private boolean isCurrentlyEmployed;
 
-	private SeekerProfile seekerProfile;
-
 	public SeekerExperience() {
 	}
 
-	public SeekerExperience(Date startDate, Date endDate, String designation, String companyName, String city,
-			String state, String country, String description, boolean isCurrentlyEmployed) {
-		super();
-		this.startDate = startDate;
+	public SeekerExperience(SeekerProfile seekerProfile, Date startDate, Date endDate, String designation,
+			String companyName, String city, String state, String country, String description,
+			boolean isCurrentlyEmployed) {
 		this.endDate = endDate;
 		this.designation = designation;
 		this.companyName = companyName;
@@ -42,14 +29,18 @@ public class SeekerExperience implements Serializable {
 		this.country = country;
 		this.description = description;
 		this.isCurrentlyEmployed = isCurrentlyEmployed;
+
+		this.id.setIdSeekerProfile(seekerProfile.getId());
+		this.id.setStartDate(startDate);
+
 	}
 
-	public Date getStartDate() {
-		return startDate;
+	public SeekerExperienceCompositeID getId() {
+		return id;
 	}
 
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setId(SeekerExperienceCompositeID id) {
+		this.id = id;
 	}
 
 	public Date getEndDate() {
@@ -114,18 +105,6 @@ public class SeekerExperience implements Serializable {
 
 	public void setIsCurrentlyEmployed(boolean isCurrentlyEmployed) {
 		this.isCurrentlyEmployed = isCurrentlyEmployed;
-	}
-
-	public SeekerProfile getSeekerProfile() {
-		return seekerProfile;
-	}
-
-	public void setSeekerProfile(SeekerProfile seekerProfile) {
-		this.seekerProfile = seekerProfile;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }

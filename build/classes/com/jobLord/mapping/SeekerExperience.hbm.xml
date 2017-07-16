@@ -3,17 +3,18 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
-	<class name="com.jobLord.model.SeekerExperience" table="seeker_experience">
-		<composite-id>
-			<key-many-to-one name="id">
-				<column name="id_"></column>
-			</key-many-to-one>
-			<key-property name=""></key-property>
-			<key-property name="startDate" column="start_date"></key-property>
+<hibernate-mapping package="com.jobLord.model">
+	<class name="SeekerExperience" table="seeker_experience">
+		<composite-id name="id" class="SeekerExperienceCompositeID">
+			<key-property name="idSeekerProfile" access="property">
+				<column name="id_seeker_profile"></column>
+			</key-property>
+			<key-property name="startDate" type="date" access="property">
+				<column name="start_date"></column>
+			</key-property>
 		</composite-id>
 
-		<property name="endDate" type="java.util.Date">
+		<property name="endDate" type="date">
 			<column name="end_date" not-null="false"></column>
 		</property>
 		<property name="designation" type="java.lang.String">

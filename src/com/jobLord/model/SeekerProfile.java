@@ -1,6 +1,7 @@
 package com.jobLord.model;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class SeekerProfile {
@@ -12,8 +13,7 @@ public class SeekerProfile {
 	private Date DOB;
 	private char gender;
 
-	// private List<SeekerExperience> seekerExperiences;
-
+	private Set<SeekerExperience> seekerExperiences;
 	private Set<Skill> skills;
 	private Set<SeekerEducation> seekerEducations;
 
@@ -86,14 +86,6 @@ public class SeekerProfile {
 		this.gender = gender;
 	}
 
-	/*
-	 * public List<SeekerExperience> getSeekerExperiences() { return
-	 * seekerExperiences; }
-	 * 
-	 * public void setSeekerExperiences(List<SeekerExperience>
-	 * seekerExperiences) { this.seekerExperiences = seekerExperiences; }
-	 */
-
 	public Set<Skill> getSkills() {
 		return skills;
 	}
@@ -108,6 +100,14 @@ public class SeekerProfile {
 
 	public void setSeekerEducations(Set<SeekerEducation> seekerEducations) {
 		this.seekerEducations = seekerEducations;
+	}
+
+	public Set<SeekerExperience> getSeekerExperiences() {
+		return seekerExperiences;
+	}
+
+	public void setSeekerExperiences(Set<SeekerExperience> seekerExperiences) {
+		this.seekerExperiences = seekerExperiences;
 	}
 
 }

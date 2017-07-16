@@ -2,6 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
 <hibernate-mapping package="com.jobLord.model">
 	<class name="SeekerProfile" table="seeker_profile">
 		<id name="id" type="java.lang.Integer">
@@ -20,7 +21,7 @@
 		<property name="mobile" type="java.lang.String">
 			<column name="mobile" length="15" not-null="true"></column>
 		</property>
-		<property name="DOB" type="java.util.Date">
+		<property name="DOB" type="date">
 			<column name="dob" not-null="true"></column>
 		</property>
 		<property name="gender" type="java.lang.Character">
@@ -44,6 +45,14 @@
 			</key>
 			<one-to-many class="SeekerEducation" />
 		</set>
+
+		<set name="seekerExperiences" inverse="true">
+			<key>
+				<column name="id_seeker_profile" not-null="true"></column>
+			</key>
+			<one-to-many class="SeekerExperience" />
+		</set>
+
 	</class>
 </hibernate-mapping>
 

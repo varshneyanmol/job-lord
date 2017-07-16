@@ -6,6 +6,8 @@ import org.hibernate.Transaction;
 import com.jobLord.model.Degree;
 import com.jobLord.model.SeekerEducation;
 import com.jobLord.model.SeekerEducationCompositeID;
+import com.jobLord.model.SeekerExperience;
+import com.jobLord.model.SeekerExperienceCompositeID;
 import com.jobLord.model.SeekerProfile;
 import com.jobLord.model.Skill;
 import com.jobLord.util.HibernateUtil;
@@ -53,6 +55,18 @@ public class SeekerProfileDao {
 		Session session = HibernateUtil.openSession();
 		Transaction tx = session.beginTransaction();
 		id = (SeekerEducationCompositeID) session.save(seekerEducation);
+		tx.commit();
+		session.close();
+
+		return id;
+	}
+
+	public static SeekerExperienceCompositeID saveSeekerExperience(SeekerExperience seekerExperience) {
+		SeekerExperienceCompositeID id = null;
+
+		Session session = HibernateUtil.openSession();
+		Transaction tx = session.beginTransaction();
+		id = (SeekerExperienceCompositeID) session.save(seekerExperience);
 		tx.commit();
 		session.close();
 

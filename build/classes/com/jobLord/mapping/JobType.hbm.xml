@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.jobLord.model">
+	<class name="JobType" table="job_type">
+		<id name="id" type="integer">
+			<column name="id_job_type"></column>
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="jobTypeLabel" type="string">
+			<column name="job_type_label" length="60" not-null="true"></column>
+		</property>
+
+		<set name="jobPosts" inverse="true">
+			<key>
+				<column name="id_job_type" not-null="true"></column>
+			</key>
+			<one-to-many class="JobPost" />
+		</set>
+
+	</class>
+</hibernate-mapping>

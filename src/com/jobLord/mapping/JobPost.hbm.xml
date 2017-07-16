@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.jobLord.model">
+	<class name="JobPost" table="job_post">
+		<id name="id" type="integer">
+			<column name="id_job_post"></column>
+			<generator class="identity"></generator>
+		</id>
+
+		<property name="createdDate" type="date">
+			<column name="created_date" not-null="true"></column>
+		</property>
+
+		<property name="salary" type="long">
+			<column name="salary" not-null="false"></column>
+		</property>
+
+		<property name="salaryRangeStart" type="long">
+			<column name="salary_range_start" not-null="false"></column>
+		</property>
+
+		<property name="salaryRangeEnd" type="long">
+			<column name="salary_range_end" not-null="false"></column>
+		</property>
+
+		<property name="description" type="string">
+			<column name="description" not-null="false"></column>
+		</property>
+
+		<property name="open">
+			<column name="open" not-null="true"></column>
+		</property>
+
+		<set name="skills" table="job_skill" cascade="none" inverse="false">
+			<key>
+				<column name="id_job_post" not-null="true"></column>
+			</key>
+			<many-to-many class="Skill" column="id_skill"></many-to-many>
+		</set>
+
+		<many-to-one name="jobType">
+			<column name="id_job_type" not-null="true"></column>
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

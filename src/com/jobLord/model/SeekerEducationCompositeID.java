@@ -21,7 +21,6 @@ public class SeekerEducationCompositeID implements Serializable {
 	public boolean equals(Object o) {
 		boolean result = false;
 		if (o != null && o instanceof SeekerEducationCompositeID) {
-			System.out.println("INSIDE EQUALS");
 			SeekerEducationCompositeID id = (SeekerEducationCompositeID) o;
 			result = this.idSeekerProfile.equals(id.idSeekerProfile) && this.idDegree.equals(id.idDegree);
 		}
@@ -30,7 +29,6 @@ public class SeekerEducationCompositeID implements Serializable {
 
 	@Override
 	public int hashCode() {
-		System.out.println("INSIDE HASHCODE");
 		return idSeekerProfile.hashCode() + idDegree.hashCode();
 	}
 

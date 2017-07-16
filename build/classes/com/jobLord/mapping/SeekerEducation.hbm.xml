@@ -6,10 +6,10 @@
 <hibernate-mapping package="com.jobLord.model">
 	<class name="SeekerEducation" table="seeker_education">
 		<composite-id name="id" class="SeekerEducationCompositeID">
-			<key-property name="idSeekerProfile" access="field">
+			<key-property name="idSeekerProfile" access="property">
 				<column name="id_seeker_profile"></column>
 			</key-property>
-			<key-property name="idDegree" access="field">
+			<key-property name="idDegree" access="property">
 				<column name="id_degree"></column>
 			</key-property>
 		</composite-id>
@@ -18,11 +18,11 @@
 			<column name="university" length="100" not-null="true"></column>
 		</property>
 
-		<property name="startDate" type="java.util.Date">
+		<property name="startDate" type="date">
 			<column name="start_date" not-null="true"></column>
 		</property>
 
-		<property name="endDate" type="java.util.Date">
+		<property name="endDate" type="date">
 			<column name="end_date" not-null="true"></column>
 		</property>
 

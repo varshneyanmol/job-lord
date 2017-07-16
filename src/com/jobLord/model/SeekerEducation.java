@@ -27,8 +27,9 @@ public class SeekerEducation {
 		this.percentage = percentage;
 		this.cgpa = cgpa;
 
-		// this.id.setIdSeekerProfile((Integer) seekerProfile.getId());
-		// this.id.setIdDegree((Integer) degree.getId());
+		System.out.println("SEEKER PROFILE ID: " + seekerProfile.getId());
+		this.id.setIdSeekerProfile(seekerProfile.getId());
+		this.id.setIdDegree(degree.getId());
 	}
 
 	public SeekerEducationCompositeID getId() {
